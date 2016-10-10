@@ -1,0 +1,48 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to #{title} {{lang}}    
+        
+    //.img-btn
+        input(type="file" ngf-select ng-model="fl" name="file"
+            accept="xml/*" ngf-max-size="30MB" required
+            ngf-model-invalid="errorFile")
+    //.thumb
+        img(ngf-thumbnail="fl")
+        div(ng-src="fl") {{fl.type}} 
+        div {{vendor}}
+    div.body
+        div.panel
+            button(ng-click="main.replace()") Заменить
+        div.panel
+            label.lblVendor Поставщик: {{vendorId}}
+            label.lblHome Наша: {{homeId}}
+            
+        div.container.vendor
+            div.pointer.item(ng-repeat="(k, v) in vendor.yml_catalog.shop.categories.category" ng-click="main.setVendor(v._id)") 
+                span ({{v._id}})
+                span  {{v.__text}}
+                span  ({{v._parentId}})
+        
+        div.container.home
+            div.item(ng-repeat="(k, v) in home['Группы']['Группа']") 
+                span ({{v["Ид"]}}) 
+                span {{v["Наименование"]}}
+                button(ng-click="main.setHome(v['Ид'])") Задать
+                div.subitem.item(ng-repeat="s in v['Группы']['Группа']" ) 
+                    span ({{s["Ид"]}}){{s["Наименование"]}}
+                    button(ng-click="main.setHome(s['Ид'])") Задать
+                    div.subsubitem.item(ng-repeat="ss in s['Группы']['Группа']")
+                        span ({{ss["Ид"]}}){{ss["Наименование"]}}
+                        button(ng-click="main.setHome(ss['Ид'])") Задать
+                        div.subsubsubitem(ng-repeat="sss in ss['Группы']['Группа']")
+                            span ({{sss["Ид"]}}){{sss["Наименование"]}}
+                            button(ng-click="main.setHome(sss['Ид'])") Задать
+        div.container.vendor
+            div.pointer.item(ng-repeat="(k, v) in vendor.yml_catalog.shop.offers.offer" ng-click="main.setVendor(v._id)") 
+                span ({{v._id}})
+                span ({{v.categoryId}})
+                span  {{v.name}}
+                
+                

@@ -1,0 +1,77 @@
+.body{
+    width: 1200px;
+    margin: 0 auto;
+    
+}
+.container{
+    background-color: #a0a5ad;
+    width: 550px;
+    height: 500px;
+    overflow-y: auto;
+    display: inline-block;
+}
+content-wrapper{
+    display: block;
+    width: 970px;
+    margin: 0 auto 0px auto;    
+    background: #d1d1d1;
+    background: -moz-linear-gradient(top, #d1d1d1 0%, #faf9ff 40%, #c1c5c9 72%, #a5a5aa 100%);
+    background: -webkit-linear-gradient(top, #d1d1d1 0%,#faf9ff 40%,#c1c5c9 72%,#a5a5aa 100%);
+    background: linear-gradient(to bottom, #d1d1d1 0%,#faf9ff 40%,#c1c5c9 72%,#a5a5aa 100%);
+    box-shadow: 0 0 3px 5px rgba(0, 0, 0, .3);
+}
+.vendor{
+    
+}
+.home{
+    margin: 0 0 0 20px;
+}
+.subitem{
+    margin: 0 0 0 15px;
+}
+.subsubitem{
+    margin: 0 0 0 30px;
+}
+.subsubsubitem{
+    margin: 0 0 0 45px;
+}
+.lblVendor{
+    display: inline-block;
+    width: 550px;
+}
+.lblHome{
+    display: inline-block;
+    width: 550px;
+    margin: 0 0 0 20px;
+}
+item>span{
+    font-size: 20px;
+}
+.item:hover>span{
+    color: #700;
+}
+
+
+
+
+
+.animation-fade.ng-hide-add,
+.animation-fade.ng-hide-remove {
+     /* здесь прописаны эффекты проявления и исчезновения слайда */
+     -webkit-transition: 1s linear all;
+     -moz-transition: 1s linear all;
+     -o-transition: 1s linear all;
+     transition: 1s linear all;
+     display: block !important;
+}
+.animation-fade.ng-hide-add,
+.animation-fade.ng-hide-remove.ng-hide-remove-active {
+     /* это стартовая точка анимации исчезновения и конечная точка анимации проявления */
+     opacity: 1;
+ }
+.animation-fade.ng-hide-add.ng-hide-add-active,
+.animation-fade.ng-hide-remove {
+     /* это конечная точка анимации исчезновения и стартовая точка анимации проявления */
+     opacity: 0;
+     position: absolute;
+}
