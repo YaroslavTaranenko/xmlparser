@@ -52,6 +52,41 @@
                 }
             }
         };
+        this.remove = function(){
+            var subs = [];
+            for(var i = 0; i < $scope.vendor.yml_catalog.shop.categories.category.length; i++){
+                if($scope.vendor.yml_catalog.shop.categories.category[i]._id == $scope.vendorId){
+                    $scope.vendor.yml_catalog.shop.categories.category.splice(i, 1);
+                    i--;
+                }                                
+            }
+            for(i = 0; i < $scope.vendor.yml_catalog.shop.categories.category.length; i++){
+                
+                if($scope.vendor.yml_catalog.shop.categories.category[i]._parentId == $scope.vendorId){
+                    subs.push($scope.vendor.yml_catalog.shop.categories.category[i]._id);
+                    $scope.vendor.yml_catalog.shop.categories.category.splice(i, 1);
+                    i--;
+                    
+                }                
+            }
+            subs.push($scope.vendorId);
+            alert(subs);
+            for(i = 0; i < $scope.vendor.yml_catalog.shop.offers.offer.length; i++){
+                for(var j = 0; j < subs.length; j++){
+                    if($scope.vendor.yml_catalog.shop.offers.offer[i].categoryId == subs[j]){
+                        $scope.vendor.yml_catalog.shop.offers.offer.splice(i, 1);
+                        i--;
+                    }
+                }
+            }
+        };
+        this.toXml = function(){
+            var x2js = new X2JS();
+            var xml = x2js.json2xml_str( $scope.vendor );
+            $scope.xmlout = xml;
+            //jsonObj = x2js.json2xml_str(jsonObj);
+            
+        };
         
     });
     

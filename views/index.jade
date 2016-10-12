@@ -15,6 +15,8 @@ block content
     div.body
         div.panel
             button(ng-click="main.replace()") Заменить
+            button(ng-click="main.remove()") Удалить
+            button(ng-click="main.toXml()") XML
         div.panel
             label.lblVendor Поставщик: {{vendorId}}
             label.lblHome Наша: {{homeId}}
@@ -41,8 +43,8 @@ block content
                             button(ng-click="main.setHome(sss['Ид'])") Задать
         div.container.vendor
             div.pointer.item(ng-repeat="(k, v) in vendor.yml_catalog.shop.offers.offer" ng-click="main.setVendor(v._id)") 
-                span ({{v._id}})
+                //span ({{v._id}})
                 span ({{v.categoryId}})
                 span  {{v.name}}
                 
-                
+        div out = {{xmlout}}
